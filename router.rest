@@ -1,0 +1,12 @@
+Get http://localhost:8000/users 
+
+Get http://localhost:8000/users 
+
+Get http://localhost:8000/users 
+
+Get http://localhost:8000/users 
+
+GET http://localhost:8000/users/67943f5f69343ebd6fc03a28
+GET http://localhost:8000/users/67943f5f69343ebd6fc03a28
+GET http://localhost:8000/users/67943f5f69343ebd6fc03a28
+GET http://localhost:8000/users/67943f5f69343ebd6fc03a28
