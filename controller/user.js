@@ -32,11 +32,11 @@ const createUser = [
     body('email').isEmail().withMessage('Email is invalid'),
     body('phone').isInt({min : 1}).withMessage('Number of people is invalid'),
 
-    async(req, res) => {
+    async (req, res) => {
         const errors = validationResult(req);
-        if(!errors.isEmpty()){
-            const errorMessages = errors.array().map(error => error.msg);
-            res.status(400).json({errorMessages})
+        if (!errors.isEmpty()) {
+            const errorMessages = errors.array().map((error) => error.msg);
+            return res.status(400).json({errors : errorMessages});
         }
         const user = {
             name: req.body.name,
