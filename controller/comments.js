@@ -16,10 +16,10 @@ const getSingleComments = async (req, res) => {
     try{
         const commentData = await mongodb.getdataBase().db().collection('comments').findOne({ _id: commentId });
         if (commentData) {
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(commentData);
+            res.setHeader('Content-Type', 'application/json');
+            res.status(200).json(commentData);
         } else {
-        res.status(404).json({ error: 'Comment  not found' });
+            res.status(404).json({ error: 'Comment  not found' });
         }
     }catch{
         res.status(500).json({ error: ' Error fetching comment' });
@@ -74,7 +74,7 @@ const updateComment = [
             if(response.modifiedCount > 0){
                 res.status(200).send();
             }else{
-                res.status(500).json(response.error || '2Error updating comment')
+                res.status(500).json(response.error || 'Error updating comment')
             }
         }catch(error){
             res.status(500).json({error: '1Error updating comment' });

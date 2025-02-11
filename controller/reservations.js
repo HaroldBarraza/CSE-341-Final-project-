@@ -35,7 +35,7 @@ const createReservation =[
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
             const errorMessages = errors.array().map((error) => error.msg);
-            res.status(400).json({ errors : errorMessages });
+            return res.status(400).json({errors : errorMessages});
         }
         const reservations = {
             name: req.body.name,
@@ -71,14 +71,14 @@ const updateReservation = [
             notes: req.body.notes
         }
         try{
-            const result = await mongodb.getdataBase().db().collection('reservations').replaceOne(reservations);
+            const result = await mongodb.getdataBase().db().collection('reservations').replaceOne({_id: reservationId}, reservations);
             if(result.modifiedCount > 0){
                 res.status(200).send();
             }else{
-                res.status(500).json(response.error || 'Error updating reservation');
+                res.status(500).json(result.error || '2Error updating reservation');
             }
         }catch (error){
-            res.status(500).json({error: 'Error updating reservation'});
+            res.status(500).json({error: '1Error updating reservation'});
         }
     }
 ]
