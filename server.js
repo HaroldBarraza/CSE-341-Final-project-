@@ -50,7 +50,7 @@ app
     });
 
 app.get ('/',(req,res) => {
-    res.send(req.session.user !== undefined ? r`Logged in as ${req.session.user.username}` : `Not logged in`);
+    res.send(req.session.user !== undefined ? `Logged in as ${req.session.user.username}` : `Not logged in`);
 });
 
 app.get('/github/callback', passport.authenticate('github',{
