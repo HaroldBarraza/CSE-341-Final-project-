@@ -12,7 +12,7 @@ const getAllReservation = async (req, res) => {
 }
 
 const getSingleReservation = async (req, res) => {
-    const reservationId = new ObjectId(req,params.id);
+    const reservationId = new ObjectId(req.params.id);
     try{
         const reservationData = await mongodb.getdataBase().db().collection('reservations').findOne({ _id: reservationId } );
         if(reservationData){
