@@ -14,7 +14,7 @@ const getAllReservation = async (req, res) => {
 const getSingleReservation = async (req, res) => {
     const reservationId = new ObjectId(req.params.id);
     try{
-        const reservationData = await mongodb.getdataBase().db().collection('reservations').findOne({ _id: reservationId } );
+        const reservationData = await mongodb.getdataBase().db().collection('reservations').findOne({ _id: reservationId });
         if(reservationData){
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json(reservationData);
@@ -22,7 +22,7 @@ const getSingleReservation = async (req, res) => {
             res.status(404).json({ message: 'Reservation not found' });
         }
     }catch{
-        res.status(404).json({error: 'Reservation not found'});
+        res.status(500).json({error: 'Reservation not found'});
     }
 }
 
