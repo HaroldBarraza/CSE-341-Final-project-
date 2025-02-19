@@ -19,7 +19,7 @@ const getSingleComments = async (req, res) => {
             res.setHeader('Content-Type', 'application/json');
             res.status(200).json(commentData);
         } else {
-            res.status(404).json({ error: 'Comment  not found' });
+            res.status(404).json({ error: 'Comment not found' });
         }
     }catch{
         res.status(500).json({ error: ' Error fetching comment' });
